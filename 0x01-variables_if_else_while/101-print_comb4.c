@@ -1,41 +1,36 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
 /**
- * main - print numbers from 00 to 99.
-(*
- * Return: 0 on success
- */
+ * main - Entry point
+ *
+ * Return: Always 0
+*/
+
 int main(void)
 {
-	int i = '0';
-	int j = '0';
-	int k = '0';
+	int p, q;
 
-	while (i <= '7')
+	for (p = 0; p <= 98; p++)
 	{
-		while (j <= '8')
+		for (q = p + 1; q <= 99; q++)
 		{
-			while (k <= '9')
-			{
-				if (i < j && j < k)
-				{
-					putchar(i);
-					putchar(j);
-					putchar(k);
-					if (!(i == '7' && j == '8' && k == '9'))
-					{
-						putchar(',');
-						putchar(' ');
-					}
+			putchar((p / 10) + '0');
+			putchar((p % 10) + '0');
+			putchar(' ');
+			putchar((q / 10) + '0');
+			putchar((q % 10) + '0');
 
-				}
-				k++;
-			}
-			k = '0';
-			j++;
+			if (p == 98 && q == 99)
+				continue;
+
+			putchar(',');
+			putchar(' ');
 		}
-		j = '0';
-		i++;
 	}
+
 	putchar('\n');
+
 	return (0);
 }
